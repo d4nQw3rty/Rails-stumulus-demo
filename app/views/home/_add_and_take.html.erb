@@ -1,0 +1,13 @@
+<%= tag.div class: "container" do %>
+  <%= tag.h3 "Add and take 1 form elemnet", class: "container-fluid text-primary mt-2" %>
+<% end %>
+<%= content_tag :div,
+                data: {controller: "upadndown"},
+                class: "container d-flex flex-column align-items-center border border-primary rounded-2 p-1" do %>
+  <%= tag.h2  "0", data: {upadndown_target: "count" } %>
+  <%= tag.div do %>
+    <%= tag.button "add", data: {action: "click->upadndown#add"}, class: "btn btn-primary" %>
+    <%= tag.button "take", data: {action: "click->upadndown#take"}, class: "btn btn-danger" %>
+  <% end %>
+<% end %>
+  <%= tag.br %>

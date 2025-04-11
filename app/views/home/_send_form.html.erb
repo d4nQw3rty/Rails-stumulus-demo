@@ -1,0 +1,20 @@
+<%= content_tag :div, class: "container" do %>
+  <%= content_tag :div do %>
+    <%= tag.h3 "Contact me", class: "container-fluid text-primary mt-2" %>
+  <%end %>
+  <%= form_with url: send_form_home_index_path, method: :post, local: true, class: "container d-flex flex-column" do %>
+    <%= tag.div do %>
+      <%= label_tag :name, "Enter Your name", class: "form-label"%>
+      <%= text_field_tag :name,"", class: "form-control" %>
+    <% end %>
+    <%= tag.div do %>
+      <%= label_tag :email, "Your e-mail", class: "form-label" %>
+      <%= email_field_tag :email, "" , class: "form-control" %>
+    <% end %>
+    <%= tag.div do %>
+      <%= label_tag :message, "Send a message", class: "form-label" %>
+      <%= text_area_tag :message,"", class: "form-control" %>
+    <% end %>
+    <%= submit_tag "Send", class: "btn btn-primary"%>  
+  <% end %>
+<% end %>

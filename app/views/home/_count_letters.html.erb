@@ -1,0 +1,9 @@
+<%= content_tag :div,
+                data: {controller: "lettercounter"},
+                style: "display: flex; gap: 2em;",
+                class: "container align-items-center justify-content-between border border-primary rounded-2 p-1" do %>
+    <%= tag.h3 "Let's count the characters you input", class: "container-fluid text-primary mt-2" %>
+    <%= tag.input class: "form-control", data: {lettercounter_target: "word", action: "input->lettercounter#get"}, placeholder: "Please type a word"%>
+    <%= tag.div "0", data: {lettercounter_target: "countletters"}, style: "min-width: 20px;"%>
+ <% end %>
+ <%= tag.br %>

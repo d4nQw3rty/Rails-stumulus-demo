@@ -1,0 +1,12 @@
+ <%= content_tag :div,
+                 id: "select-container",
+                 data: {controller: "optative"},
+                 class: "d-flex container" do %>
+   <%= tag.h3 "Select an option", class: "container-fluid text-primary mt-2" %>
+   <%= select_tag "concept",
+                   options_for_select(["Select an option"] + my_options.map {|id, name| [name, id]}),
+                   data: {optative_target: "selected", action: "change->optative#sendId"},
+                   class: "form-select" %>
+   <%= tag.input data: {optative_target: "idconcept" }, placeholder: "Id Concept:", class: "form-control" %>
+ <% end %> 
+ <%= tag.br %>
