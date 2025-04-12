@@ -1,0 +1,9 @@
+<%= content_tag :div, class: "container-fluid" do %>
+  <%= content_tag :h1, greeting %>
+<% end %>
+<%= content_tag :div, class: "container d-flex" do %>
+  <%= content_tag :nav, class: "navbar navbar-expand-lg bg-body-tertiary d-flex gap-1" do %>
+    <%= link_to "Home", root_path, class: "btn #{current_page?(root_path) and 'btn-primary' or 'btn-secondary' }" %>
+    <%= link_to "Selections", selections_path, class: "btn #{current_page?(selections_path) and 'btn-primary' or 'btn-secondary' }" %>
+  <% end %>
+<% end %>

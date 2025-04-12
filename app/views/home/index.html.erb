@@ -1,4 +1,4 @@
-<%= tag.h1 "Hello, Rails!", class: "container-fluid text-primary mt-2" %>
+<%= render '/shared/header', greeting: "Hello, Rails! - Input and Click Demo" %>
 <%= render 'add_and_take'  %>
 <%= render 'count_letters' %>
 <%= render 'select_option', my_options: @my_options %>

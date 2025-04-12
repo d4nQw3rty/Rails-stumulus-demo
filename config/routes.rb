@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     # Define a route for the send_form action
     post 'send_form', on: :collection
   end
+
+  resources :selections do
+    collection do
+      get 'index'
+    end
+  end
   # Defines the root path route ("/")
   root "home#index"
 end
