@@ -8,16 +8,17 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  resources :home do 
+  resources :home do
     # Define a route for the index action
-    get 'index', on: :collection
+    get "index", on: :collection
     # Define a route for the send_form action
-    post 'send_form', on: :collection
+    post "send_form", on: :collection
   end
 
   resources :selections do
     collection do
-      get 'index'
+      get "index"
+      get "food_options"
     end
   end
   # Defines the root path route ("/")
