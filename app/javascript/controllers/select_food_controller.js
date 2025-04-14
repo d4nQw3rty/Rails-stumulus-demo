@@ -23,9 +23,7 @@ export default class extends Controller {
         .then(data => { 
           console.log(data)
           foodItems.innerHTML = "<option value= ''>Select food item</option>";
-          
           data.forEach(element => {
-            
             foodItems.innerHTML += `<option value="" >${element}</option>`           
           });
         })
