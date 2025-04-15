@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     collection do
       get "index"
       get "food_options"
+      get "fetch_ip_data"
     end
   end
   # Defines the root path route ("/")

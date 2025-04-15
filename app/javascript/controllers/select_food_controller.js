@@ -5,14 +5,21 @@ export default class extends Controller {
   static targets = ["items"]
   connect() {
     console.log("selectFood connected")
+   
+      fetch(`/selections/fetch_ip_data?url=${encodeURIComponent('https://api.myip.com')}`, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+    
   }
 
   selectFoodItems(event){
     const selectedItemsId = event.target.value
-    console.log(selectedItemsId)
     const foodItems = this.itemsTarget
-    console.log(foodItems)
-    
+        
     if (selectedItemsId) {
       fetch(`/selections/food_options?option=${selectedItemsId}`, {
         headers: {
@@ -28,7 +35,5 @@ export default class extends Controller {
           });
         })
     }
-
-
   }
 }

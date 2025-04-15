@@ -1,4 +1,7 @@
 class SelectionsController < ApplicationController
+  require 'net/http'
+  require 'json'
+  require 'uri'
   FOOD_ITEMS = {
     1 => [ "Apple", "Banana", "Orange" ],
     2 => [ "Carrot", "Broccoli", "Spinach" ],
@@ -15,5 +18,11 @@ class SelectionsController < ApplicationController
     respond_to do |format|
       format.json { render json: @selected_option }
     end
+  end
+
+  def fetch_ip_data
+    uri = URI.parse(params[:url])
+    response = Net::HTTP.get_response(uri)
+    render json: response.body, status: response.code
   end
 end
