@@ -1,0 +1,18 @@
+<%= content_tag :div,
+                class: "container border border-primary p-2 mt-3",
+                data: {controller: "select-food", action: "change->select-food#selectFoodItems"} do %>
+  <%= content_tag :div, class: "input-group mb-3" do %>
+    <%= label_tag "heading", "Food headings", class: "input-group-text" %>
+    <%= select_tag "heading",
+                   options_for_select([["Select food headings", nil, { disabled: true, selected: true }] ] + @food_headings.map { |val, heading| [heading, val] }),
+                   { class: "form-select" } %>
+  <% end %>
+  <%= content_tag :div, class: "input-group mb-3" do %>
+    <%= label_tag "headings-items", "Food Items", class: "input-group-text" %>
+    <%= select_tag "headings-items",
+                    options_for_select([]),
+                    :prompt => "Select food item",
+                    class: "form-select",
+                    data: {select_food_target: "items"}  %>
+  <% end %>
+<% end %>

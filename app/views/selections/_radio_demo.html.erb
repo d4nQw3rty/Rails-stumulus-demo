@@ -1,0 +1,16 @@
+<%= content_tag :div, class: "container border border-primary mt-3 pt-3 pb-3" do %>
+  <%= form_with class: "d-flex justify-content-center gap-4" do |form| %>
+    <%= content_tag :div do %>
+      <%= form.radio_button :gender, "male" %>
+      <%= form.label :gender_male, "Male" %>
+    <% end %>
+    <%= content_tag :div do %>
+      <%= form.radio_button :gender, "female" %>
+      <%= form.label :gender_female, "Female" %>
+    <% end %>
+    <%= content_tag :div do %>
+      <%= form.radio_button :gender, "other" %>
+      <%= form.label :gender_other, "Other" %>
+    <% end %>
+  <% end %>
+<% end %>

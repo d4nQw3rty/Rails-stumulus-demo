@@ -11,7 +11,7 @@ class SelectionsController < ApplicationController
 
   def index
     @food_headings = [ [ 1, "Fruits" ], [ 2, "Vegetables" ], [ 3, "Dairy" ], [ 4, "Meat" ] ]
-  end
+   end
 
   def food_options
     @selected_option = FOOD_ITEMS[params[:option].to_i]

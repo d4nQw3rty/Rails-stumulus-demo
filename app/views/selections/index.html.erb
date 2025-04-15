@@ -1,30 +1,5 @@
 <%= render '/shared/header', greeting: "Selection Demo" %>
-<%= content_tag :div,
-                class: "container border border-primary p-2",
-                data: {controller: "select-food", action: "change->select-food#selectFoodItems"} do %>
-  <%= content_tag :div, class: "input-group mb-3" do %>
-    <%= label_tag "heading", "Food headings", class: "input-group-text" %>
-    <%= select_tag "heading",
-                   options_for_select([["Select food headings", nil, { disabled: true, selected: true }] ] + @food_headings.map { |val, heading| [heading, val] }),
-                   { class: "form-select" } %>
-  <% end %>
-  <%= content_tag :div, class: "input-group mb-3" do %>
-    <%= label_tag "headings-items", "Food Items", class: "input-group-text" %>
-    <%= select_tag "headings-items",
-                    options_for_select([]),
-                    :prompt => "Select food item",
-                    class: "form-select",
-                    data: {select_food_target: "items"}  %>
-  <% end %>
-<% end %>
-
-<%= content_tag :div, class: "container border border-primary mt-3 " do %>
-  <%= form_with do |form| %>
-    <%= form.radio_button :gender, "male" %>
-    <%= form.label :gender_male, "Male" %>
-    <%= form.radio_button :gender, "female" %>
-    <%= form.label :gender_female, "Female" %>
-    <%= form.radio_button :gender, "other" %>
-    <%= form.label :gender_other, "Other" %>
-  <% end %>
-<% end %>
+<%= render 'title', title: { header: "Select_tag Demo:", message: "Select 1 food heading and check for food items." }  %>
+<%= render 'selection_demo' %>
+<%= render 'title', title: { header: "Radio button Demo:", message: "Only can select 1 option." }  %>
+<%= render "radio_demo" %>
