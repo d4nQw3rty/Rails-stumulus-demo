@@ -28,11 +28,14 @@ export default class extends Controller {
       })
         .then(response => response.json())
         .then(data => { 
-          console.log(data)
           foodItems.innerHTML = "<option value= ''>Select food item</option>";
-          data.forEach(element => {
-            foodItems.innerHTML += `<option value="" >${element}</option>`           
-          });
+          if(data){
+            data.forEach(element => {
+              foodItems.innerHTML += `<option value="" >${element}</option>`           
+            });  
+          } else {
+            foodItems.innerHTML = "<option value= ''>Select food item</option>";
+          }
         })
     }
   }

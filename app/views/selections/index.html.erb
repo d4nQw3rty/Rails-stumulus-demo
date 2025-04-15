@@ -5,16 +5,26 @@
   <%= content_tag :div, class: "input-group mb-3" do %>
     <%= label_tag "heading", "Food headings", class: "input-group-text" %>
     <%= select_tag "heading",
-                    options_for_select(@food_options.map { |id, name| [name, id] }),
-                    :prompt => "Select food headings",
-                    class: "form-select" %>
+                   options_for_select([["Select food headings", nil, { disabled: true, selected: true }] ] + @food_headings.map { |val, heading| [heading, val] }),
+                   { class: "form-select" } %>
   <% end %>
   <%= content_tag :div, class: "input-group mb-3" do %>
     <%= label_tag "headings-items", "Food Items", class: "input-group-text" %>
     <%= select_tag "headings-items",
                     options_for_select([]),
-                    :prompt => "Select food Item",
+                    :prompt => "Select food item",
                     class: "form-select",
                     data: {select_food_target: "items"}  %>
+  <% end %>
+<% end %>
+
+<%= content_tag :div, class: "container border border-primary mt-3 " do %>
+  <%= form_with do |form| %>
+    <%= form.radio_button :gender, "male" %>
+    <%= form.label :gender_male, "Male" %>
+    <%= form.radio_button :gender, "female" %>
+    <%= form.label :gender_female, "Female" %>
+    <%= form.radio_button :gender, "other" %>
+    <%= form.label :gender_other, "Other" %>
   <% end %>
 <% end %>

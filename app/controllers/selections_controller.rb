@@ -10,7 +10,7 @@ class SelectionsController < ApplicationController
   }
 
   def index
-    @food_options = [ [ 1, "Fruits" ], [ 2, "Vegetables" ], [ 3, "Dairy" ], [ 4, "Meat" ] ]
+    @food_headings = [ [ 1, "Fruits" ], [ 2, "Vegetables" ], [ 3, "Dairy" ], [ 4, "Meat" ] ]
   end
 
   def food_options
