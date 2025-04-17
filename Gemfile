@@ -33,7 +33,7 @@ gem "bootstrap"
 gem "sprockets-rails"
 
 # Allow read sas for bootstrap in the app
-gem 'sassc-rails'
+gem "sassc-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

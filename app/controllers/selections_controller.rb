@@ -1,7 +1,7 @@
 class SelectionsController < ApplicationController
-  require 'net/http'
-  require 'json'
-  require 'uri'
+  require "net/http"
+  require "json"
+  require "uri"
   FOOD_ITEMS = {
     1 => [ "Apple", "Banana", "Orange" ],
     2 => [ "Carrot", "Broccoli", "Spinach" ],
