@@ -1,5 +1,6 @@
+<% var_title = Struct.new(:header, :message) %>
 <%= render '/shared/header', greeting: "Selection Demo" %>
-<%= render 'title', title: { header: "Select_tag Demo:", message: "Select 1 food heading and check for food items." }  %>
+<%= render 'title', title: var_title.new("Select_tag Demo:", "Select 1 food heading and check for food items.")  %>
 <%= render 'selection_demo' %>
-<%= render 'title', title: { header: "Radio button Demo:", message: "Only can select 1 option." }  %>
+<%= render 'title', title: var_title.new("Radio button Demo:", "Only can select 1 option.")  %>
 <%= render "radio_demo" %>
