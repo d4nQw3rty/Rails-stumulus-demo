@@ -1,0 +1,6 @@
+<turbo-frame id="value" >
+  <%= content_tag :div, class:"input-group mb-3" do %>
+    <%= label_tag "value", "Value", class:"input-group-text" %>
+    <%= text_field_tag 'value', val, class:"form-control", disabled: true %>
+  <% end %>
+</turbo-frame>

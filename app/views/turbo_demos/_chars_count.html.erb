@@ -1,0 +1,14 @@
+<%= content_tag :div, class: "container d-flex flex-column border border-dark-subtle rounded-2 p-1 mt-3 mb-3" do %>
+  <%= content_tag :div, class: "text-center" do %>
+  <h2>Characters Counter Demo</h2>
+  <% end %>
+  <%= form_with url: text_processor_turbo_demos_path, method: :post, data: { turbo_stream: true }, class: "container" do |f| %>
+    <%= f.label :chars, "Input your text", class: "form-label" %>
+    <%= content_tag :div, class: "input-group mb-3" do %>      
+      <%= f.text_field :chars, placeholder: "Paste your text", class: "form-control", oninput: "this.form.requestSubmit()" %>
+    <% end %>
+  <% end %>
+  <%= turbo_frame_tag "total", class:"text-center" do %>
+    <p>Characters Counter Result: 0</p>
+  <% end %>
+<% end %>

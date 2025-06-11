@@ -22,6 +22,19 @@ Rails.application.routes.draw do
       get "fetch_ip_data"
     end
   end
+
+  resources :turbo_demos do
+    collection do
+      get "index"
+      post "content1"
+      post "content2"
+      post "content3"
+      post "increment"
+      post "decrement"
+      post "text_processor"
+      post "words_counter"
+    end
+  end
   # Defines the root path route ("/")
   root "home#index"
 end

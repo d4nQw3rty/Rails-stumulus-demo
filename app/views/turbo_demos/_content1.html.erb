@@ -1,0 +1,10 @@
+<turbo-frame id="content", class="d-flex flex-column flex-grow-1 align-items-center border border-primary rounded-2 p-1" >
+  <%= content_tag :h2, "Counter Demo" %>
+  <%= content_tag :h3 do %>
+    Valor: <%= session[:count] %>
+  <% end %>
+  <%= content_tag :div, class:"d-flex gap-2" do %>
+    <%= button_to "Add 1", increment_turbo_demos_path, method: :post, form: { data: { turbo_stream: true } }, class: "btn btn-primary" %>
+    <%= button_to "Take 1", decrement_turbo_demos_path, method: :post, form: { data: { turbo_stream: true } }, class: "btn btn-danger" %>
+  <% end %>
+</turbo-frame> 

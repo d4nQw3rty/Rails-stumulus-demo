@@ -1,0 +1,11 @@
+<%= content_tag :ul, class: "container-fluid ", class:"list-group" do %>
+  <%= content_tag :li do %>
+    <%= button_to "Add and take", content1_turbo_demos_path, method: :post, form: { data:  { turbo_stream: true } }, class: "list-group-item  list-group-item-action" %>
+  <%end%>
+  <%= content_tag :li do %>
+    <%= button_to "Characters counter", content2_turbo_demos_path, method: :post, from: { data: { turbo_stream: true } }, class: "list-group-item  list-group-item-action" %>
+  <%end%>
+  <%= content_tag :li do %>
+    <%= button_to "Selection", content3_turbo_demos_path, method: :post, from: { data: { turbo_stream: true } }, class: "list-group-item  list-group-item-action" %>
+  <% end %>
+<%end%>

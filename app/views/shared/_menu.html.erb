@@ -1,0 +1,7 @@
+<%= content_tag :div, class: "container-fluid d-flex" do %>
+  <%= content_tag :nav, class: "navbar navbar-expand-lg bg-body-tertiary d-flex gap-1" do %>
+    <%= link_to "Stimulus Demo 1", root_path, class: "btn #{current_page?(root_path) and 'btn-primary' or 'btn-secondary' }" %>
+    <%= link_to "Stimulus Demo 2", selections_path, class: "btn #{current_page?(selections_path) and 'btn-primary' or 'btn-secondary' }" %>
+    <%= link_to "Turbo Demo", turbo_demos_path, class: "btn #{current_page?(turbo_demos_path) and 'btn-primary' or 'btn-secondary' }" %>
+  <% end %>
+<% end %>

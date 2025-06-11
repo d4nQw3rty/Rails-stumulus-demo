@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @my_options = [ [ "A101", "Primer valor" ], [ "A102", "Segundo valor" ], [ "X103", "Tercer valor" ] ]
+    @my_options = [ [ "A101", "First value" ], [ "T102", "Second value" ], [ "X103", "Third value" ] ]
   end
 
   def send_form
