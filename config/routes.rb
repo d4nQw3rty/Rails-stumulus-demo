@@ -32,7 +32,8 @@ Rails.application.routes.draw do
       post "increment"
       post "decrement"
       post "text_processor"
-      post "words_counter"
+      post "select_demo_1"
+      post "select_demo_2"
     end
   end
   # Defines the root path route ("/")

@@ -1,0 +1,9 @@
+<turbo-frame id="food" >
+  <%= content_tag :div, class:"input-group mb-3" do %>
+    <%= label_tag "food_items", "Food_items", class:"input-group-text" %>
+    <%= select_tag "food_items", options_for_select(
+    [["Select an option", nil, { disabled: true, selected: true }]] + food_options.map { |name| [name, name] }),
+    class: "form-select" %>
+  <% end %>
+</turbo-frame>
+

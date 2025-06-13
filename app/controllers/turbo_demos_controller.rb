@@ -1,4 +1,5 @@
 class TurboDemosController < ApplicationController
+  include ConstantConcern
   def index
     session[:count] ||= 0
   end
@@ -17,6 +18,7 @@ class TurboDemosController < ApplicationController
   end
 
   def content3
+    @food_headings = FOOD_HEADINGS
     @my_options = [ [ "A101", "First value" ], [ "T102", "Second value" ], [ "X103", "Third value" ] ]
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace("content", partial: "content3") }
@@ -49,11 +51,25 @@ class TurboDemosController < ApplicationController
     end
   end
 
-  def words_counter
+  def select_demo_1
     value = params[:selected]
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace("value", partial: "selected_val", locals: { val: value })
+      end
+    end
+  end
+
+  def select_demo_2
+    heading_value = params[:heading]
+    food = FOOD_ITEMS[heading_value.to_i]
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "food",
+          partial: "food_options",
+          locals: { food_options: food }
+        )
       end
     end
   end

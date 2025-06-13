@@ -2,15 +2,11 @@ class SelectionsController < ApplicationController
   require "net/http"
   require "json"
   require "uri"
-  FOOD_ITEMS = {
-    1 => [ "Apple", "Banana", "Orange" ],
-    2 => [ "Carrot", "Broccoli", "Spinach" ],
-    3 => [ "Milk", "Cheese", "Yogurt" ],
-    4 => [ "Chicken", "Beef", "Fish" ]
-  }
+  include ConstantConcern
+
 
   def index
-    @food_headings = [ [ 1, "Fruits" ], [ 2, "Vegetables" ], [ 3, "Dairy" ], [ 4, "Meat" ] ]
+    @food_headings = FOOD_HEADINGS
    end
 
   def food_options
