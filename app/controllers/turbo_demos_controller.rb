@@ -25,6 +25,12 @@ class TurboDemosController < ApplicationController
     end
   end
 
+  def content4
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("content", partial: "content4") }
+    end
+  end
+
   def increment
     session[:count] ||= 0
     session[:count] += 1
@@ -69,6 +75,22 @@ class TurboDemosController < ApplicationController
           "food",
           partial: "food_options",
           locals: { food_options: food }
+        )
+      end
+    end
+  end
+
+  def words_counter
+    regex = /\d+\.\d+|\b\w+\b/
+    text = params[:text]
+    words = text.scan(regex).map { |w| w.downcase.capitalize }.sort
+    times_by_word = words.tally.map { |w, t| [ "#{w}: #{t}" ] }.join(", ")
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "show_words",
+          partial: "content4_processed",
+          locals: { words_uniq: words.uniq, times_by_word: times_by_word, raw_total: words.count, filtered_total: words.uniq.count }
         )
       end
     end

@@ -8,4 +8,7 @@
   <%= content_tag :li do %>
     <%= button_to "Selection", content3_turbo_demos_path, method: :post, from: { data: { turbo_stream: true } }, class: "list-group-item  list-group-item-action" %>
   <% end %>
+  <%= content_tag :li do %>
+    <%= button_to "Words Counter", content4_turbo_demos_path, method: :post, from: { data: { turbo_stream: true } }, class: "list-group-item  list-group-item-action" %>
+  <% end %>
 <%end%>

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       post "text_processor"
       post "select_demo_1"
       post "select_demo_2"
+      post "content4"
+      post "words_counter"
     end
   end
   # Defines the root path route ("/")

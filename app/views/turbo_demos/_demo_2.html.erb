@@ -1,0 +1,21 @@
+<%= content_tag :div, class: "container d-flex flex-column border border-dark-subtle rounded-2 p-1 mt-3 mb-3" do %>
+  <%= content_tag :div, class: "text-center" do %>
+    <h2>Selection Demo 2</h2>
+    <%= content_tag :div, class: "d-flex flex-column" do %>
+      <%= form_with url: select_demo_2_turbo_demos_path, method: :post, data: { turbo_stream: true }, class: "input-group mb-3"  do |form| %>
+        <%= form.label :heading, "Headings", class: "input-group-text" %>
+        <%= form.select :heading,                         
+                        options_for_select([["Select an option", nil, { selected: true, disabled: true }]] + @food_headings.map { |val, name| [name, val] }),
+                        {},
+                        class: "form-select",
+                        onchange:"this.form.requestSubmit()" %>
+      <% end %>
+    <% end %>
+    <%= turbo_frame_tag "food" do %>
+      <%= content_tag :div, class:"input-group mb-3" do %>
+        <%= label_tag "food_items", "Food_items", class:"input-group-text" %>
+        <%= select_tag "food_items", options_for_select([["Select an option", nil, { selected: true, disabled: true }]]), class: "form-select" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

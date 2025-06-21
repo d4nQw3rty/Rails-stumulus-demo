@@ -1,0 +1,20 @@
+<%= turbo_frame_tag "show_words", class: "container d-flex p-1 mt-3 mb-3" do %>
+  <table class="table table-bordered border-primary align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Words</th>
+        <th scope="col">Times word repeat</th>
+        <th scope="col">Total of words</th>
+        <th scope="col">Total of words not repeated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row"><%=words_uniq.join(', ')%></td>
+        <td><%=times_by_word%></td>
+        <td><%= raw_total %></td>
+        <td><%= filtered_total %></td>
+      </tr>        
+    </tbody>
+  </table>
+<% end %>
